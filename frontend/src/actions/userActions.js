@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
-} from "../constants/userConstants";
+} from '../constants/userConstants';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -14,12 +14,12 @@ export const login = (email, password) => async (dispatch) => {
 
     const config = {
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
       },
     };
     const { data } = await axios.post(
-      "/api/users/login/",
-      { username: email, password: password },
+      '/api/users/login/',
+      { 'username': email, 'password': password },
       config
     );
     dispatch({
@@ -27,7 +27,7 @@ export const login = (email, password) => async (dispatch) => {
       payload: data,
     });
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,

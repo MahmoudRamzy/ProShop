@@ -13,7 +13,7 @@ import {
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 
-function CartScreen({}) {
+function CartScreen({ }) {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function CartScreen({}) {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
+    navigate("/shipping");
   };
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
